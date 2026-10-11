@@ -5,6 +5,8 @@ export default function Details(){
     const { id } = useParams();
 
     return(
-        <h1>Página Details - {id}</h1>
+        <div className="min-h-screen">
+            <h1>Página Details - {id}</h1>
+        </div>
     )
 }

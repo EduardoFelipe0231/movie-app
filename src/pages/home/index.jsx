@@ -1,6 +1,8 @@
 import { useEffect , useState } from "react"
 import api from "../../services/api";
 import Cards from "../../components/Cards";
+import Loading from "../../components/Loading";
+import { Link } from "react-router-dom";
 
 export default function Home(){
 
@@ -21,7 +23,7 @@ export default function Home(){
                 }
             })
 
-            setMovies(response.data.results.slice(0, 10))
+            setMovies(response.data.results.slice(0, 20))
         }
 
         loadMovies();
@@ -30,21 +32,25 @@ export default function Home(){
 
     return(
         <div className="bg-zinc-100 w-full">
-            <section className="w-full bg-zinc-400">
+            <section className="w-full bg-linear-to-r from-cyan-500 to-blue-500">
                 <div className="space-y-3 rounded-2xl container mx-auto h-60 flex flex-col justify-center items-start">
                     <h2 className="font-bold text-5xl">Bem-Vindo(a).</h2>
                     <p className="font-semibold text-zinc-800 text-lg">Milhões de Filmes, Séries e Pessoas para Descobrir. Explore já.</p>
                 </div>
             </section>
-            <section className="w-full">
+            <section className="w-full py-5">
                 <div className="container mx-auto py-4 flex flex-col">
                     <h3 className="font-semibold text-lg">Tendências</h3>
 
-                    <div className="grid grid-cols-4 gap-4 mt-5">
+                    <div className="grid grid-cols-5 gap-4 mt-5">
                         {movies?.map((movie) => (
-                            <Cards key={movie.id} movie={movie} />
+                            <Link to={`/details/${movie.id}`}>
+                                <Cards key={movie.id} movie={movie} />
+                            </Link>
                         ))}
+                        <Loading />
                     </div>
+                    
                 </div>
             </section>
         </div>
