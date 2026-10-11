@@ -1,12 +1,11 @@
-import axios from "axios";
-import { Languages } from "lucide-react";
 import { useEffect , useState } from "react"
 import api from "../../services/api";
+import Cards from "../../components/Cards";
 
 export default function Home(){
 
     // criar um useState para armazenar os flmes.
-    const [movie, setMovie] = useState();
+    const [movies, setMovies] = useState();
 
     // O useEffect para carregar a API com clico de vida.
     useEffect(()=>{
@@ -21,6 +20,8 @@ export default function Home(){
                     page: 1,
                 }
             })
+
+            setMovies(response.data.results.slice(0, 10))
         }
 
         loadMovies();
@@ -28,6 +29,24 @@ export default function Home(){
     }, [])
 
     return(
-        <h1>Página Home</h1>
+        <div className="bg-zinc-100 w-full">
+            <section className="w-full bg-zinc-400">
+                <div className="space-y-3 rounded-2xl container mx-auto h-60 flex flex-col justify-center items-start">
+                    <h2 className="font-bold text-5xl">Bem-Vindo(a).</h2>
+                    <p className="font-semibold text-zinc-800 text-lg">Milhões de Filmes, Séries e Pessoas para Descobrir. Explore já.</p>
+                </div>
+            </section>
+            <section className="w-full">
+                <div className="container mx-auto py-4 flex flex-col">
+                    <h3 className="font-semibold text-lg">Tendências</h3>
+
+                    <div className="grid grid-cols-4 gap-4 mt-5">
+                        {movies?.map((movie) => (
+                            <Cards key={movie.id} movie={movie} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </div>
     )
 }

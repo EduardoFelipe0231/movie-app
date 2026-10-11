@@ -17,7 +17,7 @@ const Header = () => {
                 </div>
 
                 {/* Navbar */}
-                <nav className="flex items-center gap-5 transition-all flex-1  justify-center">
+                <nav className="flex items-center gap-6 transition-all flex-1  justify-center text-sm">
                     <Link to="" className="hover:text-red-300">Movie</Link>
                     <Link to="" className="hover:text-red-300">TV Shows</Link>
                     <Link to="" className="hover:text-red-300">Favorites</Link>
@@ -26,7 +26,7 @@ const Header = () => {
                 {/* Search Box*/}
                 <div className="flex w-[320px] items-center gap-3 rounded-full bg-slate-800 p-2 ring-zinc-700">
                     <Search className="w-5 h-5 text-zinc-500" />
-                    <input placeholder="Busque um filme ou série.." type="search" className="flex-1 bg-transparent outline-none placeholder:text-zinc-500" />
+                    <input placeholder="Busque um filme ou série.." type="search" className="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-sm" />
                 </div>
 
                 {/* Profile picture */}
