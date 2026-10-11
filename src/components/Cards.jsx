@@ -15,8 +15,8 @@ const Cards = ({ movie }) => {
                     </div>
                 
                 </div>
-                <div className="py-4">
-                    <p className="font-bold capitalize">{movie.title}</p>
+                <div className="py-4 flex justify-between items-center">
+                    <p className="font-bold capitalize truncate max-w-50">{movie.title ? movie.title : movie.name.toLowerCase() }</p>
                 </div>
             </div>
         </article>
