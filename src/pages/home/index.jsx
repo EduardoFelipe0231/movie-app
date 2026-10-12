@@ -25,6 +25,7 @@ export default function Home(){
                     page: 1,
                 }
             })
+            
 
             setMovies(response.data.results.slice(0, 20))
         }

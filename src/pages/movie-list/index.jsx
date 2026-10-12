@@ -17,7 +17,7 @@ const movieList = () => {
             const response = await api.get("movie/now_playing" , {
                 params: {
                     api_key: "3959cdc8d938c145e73d25d637dd607d",
-                    language: "pt-BR"
+                    language: "pt-BR",
                 }
             })
 
@@ -42,7 +42,7 @@ const movieList = () => {
                 <section className="mt-10">
                     <h2 className="font-bold text-5xl text-zinc-100">Movies</h2>
 
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid grid-cols-5 gap-4 mt-10">
                         {film?.map((fil) => (
                             <Link to={`/details/${fil.id}`} key={fil.id} >
                                 {loading ? <Skeleton /> :  <CardsMovies fil={fil} />}
