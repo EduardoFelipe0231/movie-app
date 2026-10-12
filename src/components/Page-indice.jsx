@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const PageIndice = ( { link, previous , select }) => {
+const PageIndice = ( { link, previous , select , movie }) => {
     return(
         <div className="flex gap-2 text-zinc-100">
             <Link to={link}>
