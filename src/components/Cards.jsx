@@ -4,7 +4,7 @@ const Cards = ({ movie }) => {
 
 
     return(
-        <article className="bg-white  flex flex-col px-5 py-3 rounded-2xl cursor-pointer hover:shadow">
+        <article className="bg-zinc-700/20 flex flex-col px-5 py-3 rounded-2xl cursor-pointer hover:shadow">
             <div className="relative w-full">
                 <div className="relative overflow-hidden rounded-lg h-100 ">
                     <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} className="w-full h-full bg-no-repeat bg-contain overflow-hidden hover:scale-105 transition-transform duration-500" alt="" />
@@ -15,7 +15,7 @@ const Cards = ({ movie }) => {
                     </div>
                 
                 </div>
-                <div className="py-4 flex justify-between items-center">
+                <div className="py-4 flex justify-between items-center text-zinc-100">
                     <p className="font-bold capitalize truncate max-w-50">{movie.title ? movie.title : movie.name.toLowerCase() }</p>
                 </div>
             </div>
