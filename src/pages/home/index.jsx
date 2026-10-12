@@ -26,7 +26,7 @@ export default function Home(){
                 }
             })
 
-            setMovies(response.data.results.slice(0, 10))
+            setMovies(response.data.results.slice(0, 20))
         }
 
         loadMovies();
