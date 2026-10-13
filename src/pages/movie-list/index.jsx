@@ -16,9 +16,7 @@ const movieList = () => {
         async function loadFilm(){
             const response = await api.get("movie/popular" , {
                 params: {
-                    api_key: "3959cdc8d938c145e73d25d637dd607d",
-                    language: "pt-BR",
-                }
+                    api_key: "3959cdc8d938c145e73d25d637dd607d",                }
             })
 
             setFilm(response.data.results.slice(0, 20))
@@ -30,7 +28,7 @@ const movieList = () => {
     useEffect(()=> {
         setTimeout(() => {
             setLoading(false)
-        }, 500)
+        }, 600)
     }, [])
 
 

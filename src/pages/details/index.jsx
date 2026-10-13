@@ -17,7 +17,6 @@ export default function Details(){
             const response = await api.get(`movie/${id}` , {
                 params: {                     
                     api_key: "3959cdc8d938c145e73d25d637dd607d",
-                    language: "pt-BR"
                 }
             }).then((response) =>{
                 setDetails(response.data)
@@ -37,6 +36,29 @@ export default function Details(){
 
     }, [navigate, id])
     
+    // *********** criando o salvamento no localstorage  *********** \\
+    const handleFavorite = () => {
+        // cria o caminho para o local.
+        const myList = localStorage.getItem("@movieapp")
+
+        // variável para armazenar caso já tiver uma armazena nela, caso vazia, inicia do zero.
+        let savedFavorite = JSON.parse(myList) || [];
+
+        // compara os ID e seo filme salvo já nao está na lista em "savedFavorite".
+        const hasMovie = savedFavorite.some((savedF) => savedF.id === details.id)
+
+        
+        if(hasMovie){
+            alert(`Filme ${details.title} já existe na lista` )
+            return
+        }
+        
+        const confirmedAdd = window.confirm("Deseja adicionar aos favoritos?")
+        
+        savedFavorite.push(details)
+        localStorage.setItem("@movieapp", JSON.stringify(savedFavorite))
+        alert(`Filme ${details.title} salvo com sucesso!`)
+    }
 
 
     return(
@@ -71,15 +93,15 @@ export default function Details(){
                     <h1 className="font-bold text-zinc-100 text-4xl">{details.title}</h1>
                     {/* botões */}
                     <div className="flex gap-3">
-                        <div className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="favorite">
+                        <button onClick={handleFavorite}  className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="favorite">
                             <Heart width={20} height={20} className="text-zinc-400 hover:text-red-400 transition-all"/>
-                        </div>
-                        <div className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
+                        </button>
+                        <button className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
                             <Share width={20} height={20} className="text-zinc-400 hover:text-blue-400 transition-all"/>
-                        </div>
-                        <div className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="comment">
+                        </button>
+                        <button className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="comment">
                             <MessageSquare width={20} height={20} className="text-zinc-400 hover:text-zinc-300 transition-all"/>
-                        </div>
+                        </button>
                     </div>
                 </div>
 

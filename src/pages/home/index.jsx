@@ -21,7 +21,6 @@ export default function Home(){
             const response = await api.get("trending/all/day", {
                 params: {
                     api_key: "3959cdc8d938c145e73d25d637dd607d",
-                    Language: "pt-BR",
                     page: 1,
                 }
             })
@@ -38,7 +37,7 @@ export default function Home(){
     useEffect(()=> {
         setTimeout(() => {
             setLoading(false)
-        }, 500)
+        }, 600)
     }, [])
 
     return(
