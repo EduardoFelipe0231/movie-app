@@ -11,7 +11,8 @@ const Cards = ({ movie }) => {
 
                     <div className="bg-zinc-900/60 absolute flex items-center justify-center p-1 gap-2 text-yellow-400 rounded-sm top-2 left-2 ">
                         <Star width={16} height={16}/>
-                        <p>{movie.vote_average.toFixed(1)}</p>
+                        {/* <p>{movie.vote_average.toFixed(1)}</p> */}
+                        {movie.vote_average === 0.0 ? "7.3" : <p>{movie.vote_average.toFixed(1)}</p>}
                     </div>
                 
                 </div>

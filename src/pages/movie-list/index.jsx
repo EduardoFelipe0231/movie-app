@@ -14,7 +14,7 @@ const movieList = () => {
 
     useEffect(() => {
         async function loadFilm(){
-            const response = await api.get("movie/now_playing" , {
+            const response = await api.get("movie/popular" , {
                 params: {
                     api_key: "3959cdc8d938c145e73d25d637dd607d",
                     language: "pt-BR",

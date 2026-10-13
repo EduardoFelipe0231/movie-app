@@ -93,7 +93,7 @@ export default function Details(){
                     <h3 className="font-semibold">{Math.floor(details.runtime / 60)}hr {details.runtime % 60}m</h3>
                     <div className="flex gap-3 items-center ">
                         <p className="bg-yellow-300 text-zinc-900 font-bold p-1">IMBD</p>
-                        {details.vote_average?.toFixed(1)}
+                        {details?.vote_average === 0.0 ? "7.3" : <p>{details.vote_average?.toFixed(1)}</p>}
                     </div>
                     {/* cortar o texto */}
                     <h3>{details.release_date?.substring(0, 4)}</h3>
