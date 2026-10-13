@@ -4,6 +4,7 @@ import MovieList from './pages/movie-list'
 import TvList from './pages/tv-list'
 import Favorites from "./pages/favorites";
 import Details from "./pages/details"
+import Error from "./pages/details"
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -16,7 +17,9 @@ export default function RoutesApp(){
                 <Route path="/movies" element={<MovieList />}></Route>
                 <Route path="/tvshows" element={<TvList />}></Route>
                 <Route path="/favorites" element={<Favorites />}></Route>
-                <Route path="/details/:id" element={<Details/> }></Route>                 
+                <Route path="/details/:id" element={<Details/> }></Route>   
+
+                <Route path="*" element={<Error />}></Route>             
             </Routes>
             <Footer />
         </BrowserRouter>
