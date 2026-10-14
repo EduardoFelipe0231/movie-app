@@ -69,18 +69,15 @@ export default function Details(){
     }
 
     // copia o link da página
-    const [copy, setCopy] = useState("");
-    const shareUrl = window.location.href;
-    console.log(shareUrl)
+    const [copy, setCopy] = useState(false);
+    
+    
     async function copyToClip() {
+        const shareUrl = window.location.href;
         await navigator.clipboard.writeText(shareUrl);
         setCopy(copy)
-        toast.success(`Link copiado com sucesso ${details.title} `)
-        
+        toast(`Link copiado com sucesso`)        
     }
-
-    
-    
 
     return(
         <section className="w-full bg-zinc-800 h-screen">
@@ -117,6 +114,7 @@ export default function Details(){
                         <button onClick={handleFavorite}  className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="favorite">
                             <Heart width={20} height={20} className="text-zinc-400 hover:text-red-400 transition-all"/>
                         </button>
+                        {copy  ? console.log("copiado") : console.log("não copiado ainda")}
                         <button onClick={copyToClip} className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
                             <Share width={20} height={20} className="text-zinc-400 hover:text-blue-400 transition-all"/>
                         </button>
