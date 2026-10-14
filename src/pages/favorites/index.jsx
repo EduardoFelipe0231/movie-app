@@ -7,13 +7,13 @@ const favorites = () => {
 
     // recupera o JSON no localstorage.
     const [favorites, setFavorites] = useState();
-
+    
     useEffect(() => {
         const myList = localStorage.getItem("@movieapp")
         setFavorites(JSON.parse(myList))
 
 
-    }, [favorites])
+    }, [])
 
     return(
         <section className="w-full min-h-screen bg-zinc-800 ">
@@ -30,9 +30,15 @@ const favorites = () => {
 
                     {/* Grid favoritos */}
                     <div className="grid grid-cols-3 gap-3 mt-4 ">
-                        {favorites?.map((item) => (
-                            <FavoriteCards item={item} />
-                        ))}
+                        {favorites?.length === 0 ? (
+                            <p className="text-zinc-200 mt-12 w-full ">Sem nenhum favorito salvo ainda</p>
+                        ) : (
+                            <>
+                                {favorites?.map((item) => (
+                                    <FavoriteCards item={item} key={item.id} favorites={favorites} setFavorites={setFavorites}/>
+                                ))}
+                            </>
+                        )}
                     </div>               
 
                 </section>

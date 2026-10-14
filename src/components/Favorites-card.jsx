@@ -1,7 +1,26 @@
 import { Trash, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const FavoriteCards = ({ item }) => {
+const FavoriteCards = ({ item, setFavorites , favorites}) => {
+
+    // função para excluir os favoritos - setFavorites e favorites, é recebido via props do index favorites página base.
+
+    function deletedMovie (id) {
+        let filterMovie = favorites.filter( (item) => {
+            return (item.id !== id)
+        })
+
+        const confirmedDeleted = window.confirm(`Realmente quer excluir o filme - ${item.title}?`)
+
+        //confirma se ação acima for verdade ele exclui.
+        if(confirmedDeleted){
+            setFavorites(filterMovie)
+            localStorage.setItem("@movieapp", JSON.stringify(filterMovie))
+            alert(`Filme ${details.title} removido dos favoritos`)
+        }
+    }
+
+
     return(
         <>
             <div className="bg-zinc-700 rounded-sm p-3 flex gap-3 h-30" >
@@ -22,7 +41,7 @@ const FavoriteCards = ({ item }) => {
                         <h2 className="text-zinc-100 font-bold text-lg">{item.title}</h2>
                     </div>
                     <div className="flex items-center justify-center gap-3 text-white">
-                        <button className="bg-zinc-800 p-4 rounded-full flex cursor-pointer" title="delete favorite">
+                        <button onClick={() => deletedMovie(item.id)}  className="bg-zinc-800 p-4 rounded-full flex cursor-pointer" title="delete favorite">
                             <Trash width={20} />
                         </button>
 

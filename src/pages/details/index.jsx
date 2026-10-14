@@ -55,9 +55,13 @@ export default function Details(){
         
         const confirmedAdd = window.confirm("Deseja adicionar aos favoritos?")
         
-        savedFavorite.push(details)
-        localStorage.setItem("@movieapp", JSON.stringify(savedFavorite))
-        alert(`Filme ${details.title} salvo com sucesso!`)
+        if(confirmedAdd){
+            savedFavorite.push(details)
+            localStorage.setItem("@movieapp", JSON.stringify(savedFavorite))
+            alert(`Filme ${details.title} salvo com sucesso!`)
+        } else {
+            alert("Não adicionado!")
+        }
     }
 
 

@@ -23,8 +23,7 @@ export default function Home(){
                     api_key: "3959cdc8d938c145e73d25d637dd607d",
                     page: 1,
                 }
-            })
-            
+            })            
 
             setMovies(response.data.results.slice(0, 20))
         }
