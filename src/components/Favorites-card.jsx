@@ -42,12 +42,12 @@ const FavoriteCards = ({ item, setFavorites , favorites}) => {
                     <div className="flex-1 items-center justify-start flex">
                         <h2 className="text-zinc-100 font-bold text-lg max-w-60 truncate">{item.title}</h2>
                     </div>
-                    <div className="flex items-center justify-center gap-3 text-white">
-                        <button onClick={() => deletedMovie(item.id)}  className="bg-zinc-800 p-4 rounded-full flex cursor-pointer" title="delete favorite">
+                    <div className="flex flex items-center justify-center gap-3 text-white">
+                        <button onClick={() => deletedMovie(item.id)}  className="bg-zinc-800 p-4 rounded-full flex cursor-pointer  hover:bg-red-400 transition-all" >
                             <Trash width={20} />
                         </button>
 
-                        <Link to={`/details/${item.id}`} target="_blank" className="bg-zinc-800 p-4 rounded-full flex cursor-pointer" >
+                        <Link to={`/details/${item.id}`} target="_blank" className="bg-zinc-800 p-4 rounded-full flex cursor-pointer hover:bg-zinc-500 transition-all" >
                             <ExternalLink width={20} />
                         </Link>
                     </div>

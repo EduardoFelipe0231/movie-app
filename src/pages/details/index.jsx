@@ -114,7 +114,6 @@ export default function Details(){
                         <button onClick={handleFavorite}  className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="favorite">
                             <Heart width={20} height={20} className="text-zinc-400 hover:text-red-400 transition-all"/>
                         </button>
-                        {copy  ? console.log("copiado") : console.log("não copiado ainda")}
                         <button onClick={copyToClip} className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
                             <Share width={20} height={20} className="text-zinc-400 hover:text-blue-400 transition-all"/>
                         </button>
