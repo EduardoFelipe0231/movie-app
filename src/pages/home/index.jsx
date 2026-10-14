@@ -5,7 +5,13 @@ import Skeleton from "../../components/Skeleton";
 import { Link } from "react-router-dom";
 import PageIndice from "../../components/Page-indice";
 
+
+
+
+
 export default function Home(){
+
+
 
     // criar um useState para armazenar os flmes.
     const [movies, setMovies] = useState();
@@ -59,6 +65,8 @@ export default function Home(){
                             </Link>
                         ))}                        
                     </div>
+                    
+
                     
                 </div>
             </section>

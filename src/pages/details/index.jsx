@@ -1,15 +1,20 @@
-import { Link, replace, useNavigate, useParams } from "react-router-dom"
-import PageIndice from "../../components/Page-indice";
-import { Heart, MessageSquare, Play, Share } from "lucide-react";
-import api from "../../services/api";
 import { useEffect, useState } from "react";
+import { Link, replace, useNavigate, useParams } from "react-router-dom"
+
+import { Heart, MessageSquare, Play, Share } from "lucide-react";
+
+import api from "../../services/api";
+
+import { toast } from 'react-toastify';
 
 export default function Details(){
-
+    
     const { id } = useParams();
-    const [details, setDetails] = useState({});
-    const navigate = useNavigate();
 
+    const [details, setDetails] = useState({});
+
+    const navigate = useNavigate();   
+    
 
     useEffect(() => {
 
@@ -49,21 +54,33 @@ export default function Details(){
 
         
         if(hasMovie){
-            alert(`Filme ${details.title} já existe na lista` )
+            toast.warn(`Filme ${details.title} já existe na lista` )
             return
         }
         
-        const confirmedAdd = window.confirm("Deseja adicionar aos favoritos?")
+        // const confirmedAdd = window.confirm("Deseja adicionar aos favoritos?")
         
-        if(confirmedAdd){
+
             savedFavorite.push(details)
             localStorage.setItem("@movieapp", JSON.stringify(savedFavorite))
-            alert(`Filme ${details.title} salvo com sucesso!`)
-        } else {
-            alert("Não adicionado!")
-        }
+            toast.success(`Filme ${details.title} salvo com sucesso!`)
+
+
     }
 
+    // copia o link da página
+    const [copy, setCopy] = useState("");
+    const shareUrl = window.location.href;
+    console.log(shareUrl)
+    async function copyToClip() {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopy(copy)
+        toast.success(`Link copiado com sucesso ${details.title} `)
+        
+    }
+
+    
+    
 
     return(
         <section className="w-full bg-zinc-800 h-screen">
@@ -100,7 +117,7 @@ export default function Details(){
                         <button onClick={handleFavorite}  className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="favorite">
                             <Heart width={20} height={20} className="text-zinc-400 hover:text-red-400 transition-all"/>
                         </button>
-                        <button className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
+                        <button onClick={copyToClip} className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
                             <Share width={20} height={20} className="text-zinc-400 hover:text-blue-400 transition-all"/>
                         </button>
                         <button className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="comment">

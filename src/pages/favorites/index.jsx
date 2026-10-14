@@ -29,7 +29,7 @@ const favorites = () => {
                     </h2>
 
                     {/* Grid favoritos */}
-                    <div className="grid grid-cols-3 gap-3 mt-4 ">
+                    <div className="grid grid-cols-1 gap-3 mt-4 ">
                         {favorites?.length === 0 ? (
                             <p className="text-zinc-200 mt-12 w-full ">Sem nenhum favorito salvo ainda</p>
                         ) : (
