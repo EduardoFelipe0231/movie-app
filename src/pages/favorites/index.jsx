@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 const favorites = () => {
 
+    // recupera o JSON no localstorage.
     const [favorites, setFavorites] = useState();
 
     useEffect(() => {
@@ -12,7 +13,7 @@ const favorites = () => {
         setFavorites(JSON.parse(myList))
 
 
-    }, [])
+    }, [favorites])
 
     return(
         <section className="w-full min-h-screen bg-zinc-800 ">
