@@ -45,6 +45,8 @@ export default function Home(){
         }, 600)
     }, [])
 
+
+
     return(
         <div className="bg-zinc-800 w-full min-h-screen">
             <section className="w-full bg-gradient-to-r from-violet-500 to-purple-500 text-zinc-100">

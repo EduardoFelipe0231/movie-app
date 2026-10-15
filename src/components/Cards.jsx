@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Cards = ({ movie }) => {
 
@@ -18,8 +19,7 @@ const Cards = ({ movie }) => {
                 </div>
                 <div className="py-4 flex justify-between items-center text-zinc-100">
                     <p className="font-semibold capitalize truncate max-w-45">{movie.title ? movie.title : movie.name.toLowerCase() }</p>
-                    {/* <p className="text-sm ring-1 p-1 rounded-sm">{movie.media_type }</p> */}
-
+                    
 
                     {movie.media_type === 'tv' ? (<p className="text-sm ring-1 px-1 rounded-sm text-red-300">{movie.media_type }</p>) : (<p className="text-sm ring-1 px-1 rounded-sm text-blue-300">{movie.media_type }</p>)}
                 </div>

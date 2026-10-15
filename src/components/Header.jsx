@@ -26,7 +26,7 @@ const Header = () => {
                 {/* Search Box*/}
                 <div className="flex w-[320px] items-center gap-3 rounded-full bg-zinc-700 p-2 ring-zinc-700">
                     <Search className="w-5 h-5 text-zinc-500" />
-                    <input placeholder="Busque um filme ou série.." type="search" className="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-sm" />
+                    <input placeholder="Search for a movie or series..." type="search" className="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-sm" />
                 </div>
 
                 {/* Profile picture */}

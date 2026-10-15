@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+@custom-variant hover (&:hover);
+
 @layer base {
       * {
           margin: 0;
