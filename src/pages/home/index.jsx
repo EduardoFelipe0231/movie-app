@@ -4,6 +4,7 @@ import Cards from "../../components/Cards";
 import Skeleton from "../../components/Skeleton";
 import { Link } from "react-router-dom";
 import PageIndice from "../../components/Page-indice";
+import { tabTitle } from "../../util/title"
 
 
 
@@ -11,7 +12,7 @@ import PageIndice from "../../components/Page-indice";
 
 export default function Home(){
 
-
+    tabTitle(`Discover your favorite movie and enjoy.`)
 
     // criar um useState para armazenar os flmes.
     const [movies, setMovies] = useState();

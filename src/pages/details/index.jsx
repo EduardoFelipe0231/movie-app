@@ -7,8 +7,11 @@ import api from "../../services/api";
 
 import { toast } from 'react-toastify';
 
-export default function Details(){
-    
+import { tabTitle } from "../../util/title"
+
+export default function Details(){   
+
+
     const { id } = useParams();
 
     const [details, setDetails] = useState({});
@@ -78,6 +81,11 @@ export default function Details(){
         setCopy(copy)
         toast(`Link copiado com sucesso`)        
     }
+
+
+    tabTitle(`Details`)
+
+
 
     return(
         <section className="w-full bg-zinc-800 h-screen">

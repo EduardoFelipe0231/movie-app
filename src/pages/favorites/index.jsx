@@ -2,8 +2,11 @@ import { Heart, Link, Trash } from "lucide-react";
 import PageIndice from "../../components/Page-indice";
 import FavoriteCards from '../../components/Favorites-card'
 import { useEffect, useState } from "react";
+import { tabTitle } from "../../util/title"
 
 const favorites = () => {
+
+    tabTitle('Favorites')
 
     // recupera o JSON no localstorage.
     const [favorites, setFavorites] = useState();
@@ -12,8 +15,8 @@ const favorites = () => {
         const myList = localStorage.getItem("@movieapp")
         setFavorites(JSON.parse(myList))
 
-
     }, [])
+   
 
     return(
         <section className="w-full min-h-screen bg-zinc-800 ">

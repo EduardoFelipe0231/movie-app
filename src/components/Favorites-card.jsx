@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { toast } from 'react-toastify';
 
+
 const FavoriteCards = ({ item, setFavorites , favorites}) => {
 
     // função para excluir os favoritos - setFavorites e favorites, é recebido via props do index favorites página base.

@@ -4,9 +4,11 @@ import { useEffect , useState } from "react";
 import api from "../../services/api";
 import Skeleton from "../../components/Skeleton";
 import { Link } from "react-router-dom";
-
+import { tabTitle } from "../../util/title";
 
 const movieList = () => {
+
+    tabTitle(`Movies`)
 
     const [film, setFilm] = useState();
 
