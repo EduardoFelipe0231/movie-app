@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, replace, useNavigate, useParams } from "react-router-dom"
-
-import { Heart, MessageSquare, Play, Share } from "lucide-react";
-
+import { Copy, Heart, MessageSquare, Play, Share } from "lucide-react";
 import api from "../../services/api";
 
 import { toast } from 'react-toastify';
+import { tabTitle } from "../../util/title";
+import { Tooltip } from "react-tooltip";
 
-import { tabTitle } from "../../util/title"
+
 
 export default function Details(){   
 
@@ -119,14 +119,42 @@ export default function Details(){
                     <h1 className="font-bold text-zinc-100 text-4xl">{details.title}</h1>
                     {/* botões */}
                     <div className="flex gap-3">
-                        <button onClick={handleFavorite}  className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="favorite">
-                            <Heart width={20} height={20} className="text-zinc-400 hover:text-red-400 transition-all"/>
+                        <button 
+                                onClick={handleFavorite}  
+                                className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " 
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content="Save to favorites"
+                                data-tooltip-place="bottom" 
+                                
+                            >   
+                                <Tooltip id="my-tooltip" />                     
+                                <Heart width={20} height={20} className="text-zinc-400 hover:text-red-400 transition-all"
+                                
+                                
+                            />
                         </button>
-                        <button onClick={copyToClip} className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="share">
-                            <Share width={20} height={20} className="text-zinc-400 hover:text-blue-400 transition-all"/>
+                        <button 
+                                onClick={copyToClip} 
+                                className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all" 
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content="Copy link"
+                                data-tooltip-place="bottom"
+                            
+                            >
+                                <Copy width={20} height={20} className="text-zinc-400 hover:text-blue-400 transition-all"
+                            
+                            />
                         </button>
-                        <button className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all " title="comment">
-                            <MessageSquare width={20} height={20} className="text-zinc-400 hover:text-zinc-300 transition-all"/>
+                        <button 
+                                className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all "
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content="Copy link"
+                                data-tooltip-place="bottom"
+                                
+                            >
+                                <MessageSquare width={20} height={20} className="text-zinc-400 hover:text-zinc-300 transition-all"
+                            
+                            />
                         </button>
                     </div>
                 </div>

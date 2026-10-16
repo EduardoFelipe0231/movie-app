@@ -20,7 +20,7 @@ function App() {
           contextClass[context?.type || "default"] +
           " relative flex px-6 min-h-13 rounded-lg overflow-hidden cursor-pointer flex items-center justify-center"
         }
-        position="bottom-right"
+        position="bottom-center"
         autoClose={3000}
         hideProgressBar={true}
         newestOnTop={false}

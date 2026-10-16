@@ -19,6 +19,7 @@
     "react-router-dom": "^7.18.4",
     "react-share": "^6.1.0",
     "react-toastify": "^11.1.0",
+    "react-tooltip": "^6.0.9",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {

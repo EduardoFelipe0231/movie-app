@@ -50,7 +50,7 @@ export default function Home(){
 
     return(
         <div className="bg-zinc-800 w-full min-h-screen">
-            <section className="w-full bg-gradient-to-r from-violet-500 to-purple-500 text-zinc-100">
+            <section className="w-full bg-gradient-to-r from-zinc-500 to-blue-500 text-zinc-100">
                 <div className="space-y-3 rounded-2xl container mx-auto h-60 flex flex-col justify-center items-start ">
                     <h2 className="font-bold text-5xl">Welcome</h2>
                     <p className="font-semibold text-lg">Millions of movies, series, and people to discover. Explore now.</p>
