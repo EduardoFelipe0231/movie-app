@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import Avatar from 'boring-avatars';
 import { Search } from "lucide-react";
-
+import SearchCard from "./SearchCard";
+ 
 const Header = () => {
     return(
         //header > container > logo > nav > etc..
-        <header className="w-full bg-zinc-900 text-zinc-100">
+        <header className="w-full bg-zinc-900 text-zinc-100 relative">
             {/* Container */}
             <div className="container mx-auto py-3 gap-5 flex items-center justify-between">
 
@@ -34,6 +35,7 @@ const Header = () => {
                     <Avatar name="Amelia" size={40} variant="beam"/>
                 </div>
                 
+                <SearchCard />
             </div>
         </header>
     )

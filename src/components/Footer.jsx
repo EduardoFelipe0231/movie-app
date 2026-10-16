@@ -7,6 +7,16 @@ const Footer = () => {
                 <Link to="/" className="font-semibold text-lg ">
                     MovieApp
                 </Link>
+                <div className="flex gap-2 items-center text-zinc-500">
+                    &copy;
+                    <p className="flex gap-2 items-center ">
+                        criado por
+                        <a href="https://github.com/EduardoFelipe0231" target="_blank" className="hover:text-zinc-100 transition-all">
+                            Eduardo Felipe
+                        </a>
+                        Todos os direitos reservados.
+                    </p>
+                </div>
             </div>
             
         </footer>

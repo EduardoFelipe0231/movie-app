@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, replace, useNavigate, useParams } from "react-router-dom"
-import { Copy, Heart, MessageSquare, Play, Share } from "lucide-react";
+import { Copy, Heart, MessageSquare, Play, Share, Ellipsis } from "lucide-react";
 import api from "../../services/api";
 
 import { toast } from 'react-toastify';
@@ -148,11 +148,11 @@ export default function Details(){
                         <button 
                                 className="bg-zinc-700/60 rounded-sm p-2 cursor-pointer hover:shadow transition-all "
                                 data-tooltip-id="my-tooltip"
-                                data-tooltip-content="Copy link"
+                                data-tooltip-content="options"
                                 data-tooltip-place="bottom"
                                 
                             >
-                                <MessageSquare width={20} height={20} className="text-zinc-400 hover:text-zinc-300 transition-all"
+                                <Ellipsis width={20} height={20} className="text-zinc-400 hover:text-zinc-300 transition-all"
                             
                             />
                         </button>

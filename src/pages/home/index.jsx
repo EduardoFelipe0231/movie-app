@@ -40,11 +40,9 @@ export default function Home(){
     }, [])
 
 
-    useEffect(()=> {
-        setTimeout(() => {
-            setLoading(false)
-        }, 600)
-    }, [])
+    if(loading){
+        setLoading(false)
+    }
 
 
 
@@ -64,7 +62,7 @@ export default function Home(){
                     <div className="grid grid-cols-5 gap-4 mt-5">
                         {movies?.map((movie) => (
                             <Link to={`/details/${movie.id}`} key={movie.id} >
-                                {loading ? <Skeleton /> : <Cards movie={movie} />}
+                                <Cards movie={movie} />
                             </Link>
                         ))}                        
                     </div>

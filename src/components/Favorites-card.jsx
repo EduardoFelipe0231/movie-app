@@ -1,10 +1,14 @@
 import { Trash, ExternalLink } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { toast } from 'react-toastify';
+import { Tooltip } from "react-tooltip";
 
 
 const FavoriteCards = ({ item, setFavorites , favorites}) => {
+
+
 
     // função para excluir os favoritos - setFavorites e favorites, é recebido via props do index favorites página base.
 
@@ -23,6 +27,7 @@ const FavoriteCards = ({ item, setFavorites , favorites}) => {
 
     }
 
+    
 
     return(
         <>
@@ -44,11 +49,27 @@ const FavoriteCards = ({ item, setFavorites , favorites}) => {
                         <h2 className="text-zinc-100 font-bold text-lg max-w-60 truncate">{item.title}</h2>
                     </div>
                     <div className="flex items-center justify-center gap-3 text-white">
-                        <button onClick={() => deletedMovie(item.id)}  className="bg-zinc-800 p-4 rounded-full flex cursor-pointer hover:bg-red-400 transition-all" >
-                            <Trash width={20} />
+                        <button 
+                                onClick={() => deletedMovie(item.id)}  
+                                className="bg-zinc-800 p-4 rounded-full flex cursor-pointer hover:bg-red-400 transition-all" 
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content="delete movie"
+                                data-tooltip-place="bottom"
+                                
+                            >
+                                <Tooltip id="my-tooltip" />
+                                <Trash width={20} 
+                            />
                         </button>
 
-                        <Link to={`/details/${item.id}`} target="_blank" className="bg-zinc-800 p-4 rounded-full flex cursor-pointer hover:bg-zinc-500 transition-all" >
+                        <Link 
+                                to={`/details/${item.id}`} 
+                                target="_blank" 
+                                className="bg-zinc-800 p-4 rounded-full flex cursor-pointer hover:bg-zinc-500 transition-all" 
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content="view details"
+                                data-tooltip-place="bottom"
+                            >
                             <ExternalLink width={20} />
                         </Link>
                     </div>
