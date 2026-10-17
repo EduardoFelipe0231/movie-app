@@ -35,7 +35,7 @@ const Header = () => {
                     <Avatar name="Amelia" size={40} variant="beam"/>
                 </div>
                 
-                <SearchCard />
+                {/* <SearchCard /> */}
             </div>
         </header>
     )
